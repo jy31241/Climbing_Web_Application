@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>tabs/pills</title>
+<style>
+	.panel-body{
+		text-align:center;	
+	}
+	.mypage{
+		width:1200px;	
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.mypage tr td:nth-child(1){
+		text-align:center;
+	}
+	
+	.mypage tr td:nth-child(2){
+		text-align:center;
+	}
+	.buttongroup{
+		text-align:right;	
+	}
+</style>
+</head>
+
+<body>
+	<ul class="nav nav-tabs">
+    	<li class="active"><a href='#'>회원 정보 보기</a></li>
+        <li><a href='#'>산 모집글 현황</a></li>
+        <li><a href='#'>산 신청 현황</a></li>
+    </ul>
+    <!-- 회원정보 -->
+    <h3>회원 정보</h3>
+    <hr />
+    <br/>
+    
+    <div class="panel panel-default">
+    	<div class="panel-body">기본정보</div>
+        <div class="panel-footer">
+        	<table class="mypage">
+            	<tr>
+                	<td>아이디</td>
+                    <td>hyunwoo5906</td>
+                </tr>
+                <tr>
+                	<td>닉네임</td>
+                    <td>기니피그</td>
+                </tr>
+                <tr>
+                	<td>가입일</td>
+                    <td>2018-05-20</td>
+                </tr>
+            </table>
+            <hr/>
+            <div class="buttongroup">
+            	<button type="button" class="btn">회원정보수정</button>
+                <button type="button" class="btn btn-success">비밀번호 변경</button>
+                <button type="button" class="btn btn-warning">탈퇴</button>
+                <button type="button" class="btn btn-default">돌아가기</button>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+</html>
