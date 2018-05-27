@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="net.skhu.mapper.UserMapper">
+
+	<select id="findOne" resultType="User">
+		SELECT * FROM user WHERE id =
+		#{id}
+	</select>
+
+	<select id="findByuserId" resultType="User">
+		SELECT * FROM user WHERE
+		userId = #{userId}
+	</select>
+
+	<select id="findAll" resultType="User">
+		SELECT u.*, t.id
+		FROM User u LEFT
+		JOIN usertype t ON u.usertype_id = t.id
+	</select>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT
+		user (userId, password, email, nickName)
+		VALUES (#{userId},#{password}, #{email}, #{nickName})
+	</insert>
+	
+  <update id="update">
+    UPDATE User SET 
+      userId = #{userId}, 
+      password = #{password}, 
+      email = #{email}, 
+      nickName = #{nickName} 
+    WHERE id = #{id}
+  </update>
+	
+</mapper>
