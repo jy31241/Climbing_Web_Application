@@ -145,35 +145,26 @@
 	</div>
 
 	<div class="container">
-		<h1>유저 리스트</h1>
-		<table class="table table-bordered mt5">
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>userType_id</th>
-					<th>userId</th>
-					<th>password</th>
-					<th>grade</th>
-					<th>email</th>
-					<th>nickName</th>
-					<th>signupDate</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="user" items="${ users }">
-					<tr data-url="edit.do?id=${ user.id }">
-						<td>${ user.id }</td>
-						<td>${ user.userType_id }</td>
-						<td>${ user.userId }</td>
-						<td>${ user.password }</td>
-						<td>${ user.grade }</td>
-						<td>${ user.email }</td>
-						<td>${ user.nickName }</td>
-						<td>${ user.signupDate }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		<h1>산정보</h1>
+		<script>
+			$.ajax({
+				url : 'PublicData.do',
+				type : 'get',
+				dataType : 'json',
+				success : function(msg) {
+					console.log(msg.response.body.items.item);
+					var myItem = msg.response.body.items.item;
+
+					for (var i = 0; myItem.length; i++) {
+						var output = '';
+						console.log(myItem.length);
+						output += '<h4>' + myItem[i].mntNm + '</h4>';
+						output += '<h4>' + myItem[i].subNm + '</h4>';
+						document.body.innerHTML += output;
+					}
+				}
+			});
+		</script>
 	</div>
 
 

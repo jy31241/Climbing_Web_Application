@@ -28,11 +28,15 @@
                   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                 <![endif]-->
 <script src='http://code.jquery.com/jquery-1.10.2.js'></script>
+
 <link rel="stylesheet" type="text/css"
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
+	
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-
+	
+	
+<script type="text/javascript" src="function.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -110,6 +114,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="member/list">회원목록</a></li>
+						<li><a href="member/MtInfor">산정보</a></li>
 						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 
@@ -128,22 +133,37 @@
 
 	<div class="col-sm-2 col-md-2 sidebar">
 		<ul class="nav nav-sidebar">
-			<h4>머리</h4>
 			<li><a href="#">베스트 후기글</a></li>
-
 			<li><a href="#">전체 모집글</a></li>
 			<li><a href="#">전체 후기글</a></li>
 			<li><a href="#">자유게시판</a></li>
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
-			<h4>머리</h4>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">기타산</a></li>
+			<h4>주요 명산</h4>
+			<li><a href="">한라산</a></li>
+			<li><a href="">북한산</a></li>
+			<li><a href="">지리산</a></li>
+			<li><a href="">계룡산</a></li>
+			<li><a href="">이거 누르면 밑으로 10개</a></li>
 		</ul>
+
+		<ul class="nav nav-sidebar">
+			<h4>지역</h4>
+			<li><a href="">서울</a></li>
+			<li><a href="">경기/인천</a></li>
+			<li><a href="">충청도</a></li>
+			<li><a href="">경상도</a></li>
+			<li><a href="">강원도</a></li>
+			<li><a href="">전라도</a></li>
+
+		</ul>
+	</div>
+	
+	<div class="container">
+		<h1>산정보</h1>
+<form action="PublicData.do" method="get">
+<input type="submit" value="데이터보기"/>
 	</div>
 
 
