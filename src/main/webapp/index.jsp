@@ -103,13 +103,13 @@
                               <span class="icon-bar"></span>
                             </button> 
                         -->
-					<a class="navbar-brand" href="#">모두의 등산</a>
+					<a class="navbar-brand" href="${R}">모두의 등산</a>
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="member/list">회원목록</a></li>
+						<li><a href="${R}member/list">회원목록</a></li>
 						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 
@@ -129,21 +129,25 @@
 	<div class="col-sm-2 col-md-2 sidebar">
 		<ul class="nav nav-sidebar">
 			<h4>머리</h4>
-			<li><a href="#">베스트 후기글</a></li>
-
-			<li><a href="#">전체 모집글</a></li>
-			<li><a href="#">전체 후기글</a></li>
+			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
+			<li><a href="${R}board/mozip">전체 모집글</a></li>
+			<li><a href="${R}board/review">전체 후기글</a></li>
 			<li><a href="#">자유게시판</a></li>
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
 			<h4>머리</h4>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">명산</a></li>
-			<li><a href="">기타산</a></li>
+			<li><a href="#">명산</a></li>
+			<li><a href="#">명산</a></li>
+			<li><a href="#">명산</a></li>
+			<li><a href="#">명산</a></li>
+			<li><a href="#">기타산</a></li>
 		</ul>
+	</div>
+	
+	<div class="container">
+	
+	<h1> 홈화면 </h1>
 	</div>
 
 

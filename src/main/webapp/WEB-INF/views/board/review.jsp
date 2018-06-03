@@ -109,7 +109,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="member/list">회원목록</a></li>
+						<li><a href="${R}member/list">회원목록</a></li>
 						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 					</ul>
@@ -145,37 +145,36 @@
 	</div>
 
 	<div class="container">
-		<h1>유저 리스트</h1>
+		<a
+			href="${R}board/review"
+			onclick="clickcr(this, 'btp.album', '', '', event);"
+			class="filter-50 m-tcol-c"><img
+			src="https://cafe.pstatic.net/cafe4/ico-list-album.gif" width="15"
+			height="15" alt="앨범형">후기게시판</a> &nbsp;
+			
+		<a
+			href="${R}board/mozip"
+			onclick="clickcr(this, 'btp.board', '', '', event);" class="m-tcol-c"><img
+			src="https://cafe.pstatic.net/cafe4/ico-list-board.gif" width="15"
+			height="15" alt="게시판형">모집게시판</a>
+
+		<h1>산 후기게시판</h1>
 		<table class="table table-bordered mt5">
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>userType_id</th>
-					<th>userId</th>
-					<th>password</th>
-					<th>grade</th>
-					<th>email</th>
-					<th>nickName</th>
-					<th>signupDate</th>
-				</tr>
-			</thead>
 			<tbody>
-				<c:forEach var="user" items="${ users }">
-					<tr data-url="edit.do?id=${ user.id }">
-						<td>${ user.id }</td>
-						<td>${ user.userType_id }</td>
-						<td>${ user.userId }</td>
-						<td>${ user.password }</td>
-						<td>${ user.grade }</td>
-						<td>${ user.email }</td>
-						<td>${ user.nickName }</td>
-						<td>${ user.signupDate }</td>
+				<c:forEach var="board" items="${ boards }">
+				<tr data-url="boardview.do?id=${ board.id }">
+				<c:if test="${ board.boardType_id ==2 }"> <!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
+				<td>사진자리</td>
+					<td>${ board.title }</br>
+					${ board.user_id } &nbsp;
+					추천수:${ board.recommend }&nbsp;
+					조회수:${ board.views }&nbsp;</td>
 					</tr>
+					</c:if>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
 
 
 	<footer class="footer">
