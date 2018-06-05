@@ -136,12 +136,27 @@
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
-			<h4>머리</h4>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">기타산</a></li>
+			<h4>명산</h4>
+			<li><a href="${R}mountain/mountainreview?id=1">북한산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=2">설악산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=3">지리산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=4">속리산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=5">오대산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=6">계룡산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=7">한라산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=8">덕유산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=9">내장산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=10">가야산</a></li>
+		</ul>
+		<ul class="nav nav-sidebar">
+			<h4>지역</h4>
+			<li><a href="#">서울</a></li>
+			<li><a href="#">경기/인천</a></li>
+			<li><a href="#">충청도</a></li>
+			<li><a href="#">강원도</a></li>
+			<li><a href="#">경상도</a></li>
+			<li><a href="#">전라도</a></li>
+			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
 	
