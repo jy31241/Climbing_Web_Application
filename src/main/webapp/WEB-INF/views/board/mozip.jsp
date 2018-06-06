@@ -84,11 +84,6 @@
 
 
 </head>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
-<body>
 <body class="bodycol">
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -188,6 +183,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<a class="btn btn-default" href="${R}board/write" role="button">글 작성하기</a>
 	</div>
 
 

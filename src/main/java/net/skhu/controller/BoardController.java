@@ -37,4 +37,9 @@ public class BoardController {
         model.addAttribute("boards", boards);
         return "board/bestreview";
     }
+
+    @RequestMapping("write")
+    public String list3(Model model) {
+        return "board/write";
+    }
 }
