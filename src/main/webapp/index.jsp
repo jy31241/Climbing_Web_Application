@@ -106,7 +106,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="${R}member/list">회원목록</a></li>
 						<li><a href="#">마이페이지</a></li>
-						<li><a href="#">로그인</a></li>
+						<li><a href="${R}guest/login">로그인</a></li>
 
 					</ul>
 
