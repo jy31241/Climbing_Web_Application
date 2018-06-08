@@ -9,6 +9,15 @@ public class Board {
 	int boardType_id;
 	int user_id;
 	int region_id;
+	String text;
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	public int getId() {
 		return id;
@@ -73,5 +82,7 @@ public class Board {
 	public void setRegion_id(int region_id) {
 		this.region_id = region_id;
 	}
+
+
 
 }

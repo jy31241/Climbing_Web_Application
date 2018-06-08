@@ -7,8 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="${R}res/common.css">
-
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -34,8 +32,6 @@
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-	
-	<script src="${R}res/common.js"></script>
 
 
 <style>
@@ -159,39 +155,31 @@
 	</div>
 
 	<div class="container">
-
-
-		<h1>베스트 후기</h1>
 		<table class="table table-bordered mt5">
-			<tbody>
-					<c:forEach var="board" items="${ boards }">
-						<c:if test="${ board.boardType_id ==2 }"> <!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
-							<c:if test="${ board.recommend >11 }"> 	<!-- 추천11이상 후기글 -->
-							<tr data-url="mozipcontent?id=${ board.id }">
-								<td>사진자리</td>
-								<td>${ board.title }</br> ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp;
-									조회수:${ board.views }&nbsp;
-								</td>
-				</tr>
-				</c:if>
-				</c:if>
-				</c:forEach>
-			</tbody>
+			<h2>${board.title}<small>&nbsp;&nbsp;&nbsp;&nbsp;${board.createdDate}</small></h2>
+			<p class="lead">${ board.text }</p>
 		</table>
+
+		<c:if test="${ board.boardType_id ==1 }">
+			<!-- 모집게시글 조회 하면 모집게시판 목록으로 돌아가기 버튼 -->
+			<a class="btn btn-default" href="${R}board/mozip" role="button">목록으로</a>
+		</c:if>
+
+		<c:if test="${ board.boardType_id ==2 }">
+			<!-- 후기게시글 조회 하면 후기게시판 목록으로 돌아가기 버튼 -->
+			<a class="btn btn-default" href="${R}board/review" role="button">목록으로</a>
+		</c:if>
+
+
+		<footer class="footer">
+			<div class="container">
+				<p class="text-muted">
+					Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#">
+						이용약관 </a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333
+					</a>|
+				</p>
+		</footer>
 	</div>
-
-
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">
-				Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#"> 이용약관
-				</a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333 </a>|
-			</p>
-
-
-		</div>
-	</footer>
-
-
+	</div>
 </body>
 </html>

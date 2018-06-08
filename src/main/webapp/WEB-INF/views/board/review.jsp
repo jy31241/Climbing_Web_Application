@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<link rel="stylesheet" href="${R}res/common.css">
+
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -33,6 +35,7 @@
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
 
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -169,7 +172,7 @@
 		<table class="table table-bordered mt5">
 			<tbody>
 				<c:forEach var="board" items="${ boards }">
-					<tr data-url="boardview.do?id=${ board.id }">
+					<tr data-url="mozipcontent?id=${ board.id }">
 						<c:if test="${ board.boardType_id ==2 }">
 							<!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
 							<td>사진자리</td>
@@ -181,8 +184,9 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
-		<a class="btn btn-default" href="${R}board/write" role="button">글 작성하기</a>
+
+		<a class="btn btn-default" href="${R}board/write" role="button">글
+			작성하기</a>
 	</div>
 
 

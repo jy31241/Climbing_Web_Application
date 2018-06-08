@@ -94,9 +94,11 @@
 <!--글 작성 폼 크기에따라 사이즈 조절 -->
 
 </head>
+</head>
 <body class="bodycol">
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
+
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<!--  모바일 버전 사이즈 일 때
@@ -129,6 +131,41 @@
 		</nav>
 	</header>
 
+	<div class="col-sm-2 col-md-2 sidebar">
+		<ul class="nav nav-sidebar">
+			<h4>머리</h4>
+			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
+			<li><a href="${R}board/mozip">전체 모집글</a></li>
+			<li><a href="${R}board/review">전체 후기글</a></li>
+			<li><a href="#">자유게시판</a></li>
+			<li><a href="#">추천 명산</a></li>
+		</ul>
+		<ul class="nav nav-sidebar">
+			<h4>명산</h4>
+			<li><a href="${R}mountain/mountainreview?id=1">북한산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=2">설악산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=3">지리산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=4">속리산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=5">오대산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=6">계룡산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=7">한라산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=8">덕유산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=9">내장산</a></li>
+			<li><a href="${R}mountain/mountainreview?id=10">가야산</a></li>
+		</ul>
+		<ul class="nav nav-sidebar">
+			<h4>지역</h4>
+			<li><a href="#">서울</a></li>
+			<li><a href="#">경기/인천</a></li>
+			<li><a href="#">충청도</a></li>
+			<li><a href="#">강원도</a></li>
+			<li><a href="#">경상도</a></li>
+			<li><a href="#">전라도</a></li>
+			<li><a href="#">제주도</a></li>
+		</ul>
+	</div>
+
+
 	<div class="container">
 		<h1>글 작성 다음에디터</h1>
 		<!-- 에디터 시작 -->
@@ -158,11 +195,6 @@
 								</div>
 							</li>
 							<!-- 이미지 첨부 버튼 끝 -->
-							<li class="tx-list">
-								<div unselectable="on" id="tx_file" class="tx-file tx-btn-trans">
-									<a href="javascript:;" title="파일" class="tx-text">파일</a>
-								</div>
-							</li>
 							<li class="tx-list">
 								<div unselectable="on" id="tx_media"
 									class="tx-media tx-btn-trans">
@@ -293,7 +325,7 @@
 							<li class="tx-list">
 								<div unselectable="on" class="		 tx-btn-bg 	tx-aligncenter"
 									id="tx_aligncenter">
-									<a href="javascript:;" class="tx-icon" title="가운데정렬 (Ctrl+.)">가운데정렬</a>
+									<a href="javascript:;" class="tx-icon" t itle="가운데정렬 (Ctrl+.)">가운데정렬</a>
 								</div>
 							</li>
 							<li class="tx-list">
@@ -619,6 +651,7 @@
 						<img hspace="4" height="14" width="78" align="absmiddle"
 							src="${R}res/daumeditor/images/icon/editor/editor_bi.png" />
 					</div>
+					<button class="btn btn-default" type="submit" onclick="location.href='${R}board/upload'">제출</button>
 				</div>
 				<!-- 편집영역 끝 -->
 				<!-- 첨부박스 시작 -->
@@ -651,7 +684,6 @@
 					</div>
 				</div>
 				<!-- 첨부박스 끝 -->
-
 				<!-- 에디터 컨테이너 끝 -->
 		</form>
 	</div>
@@ -663,10 +695,10 @@
 			txService : 'sample', /* 수정필요없음. */
 			txProject : 'sample', /* 수정필요없음. 프로젝트가 여러개일 경우만 수정한다. */
 			initializedId : "", /* 대부분의 경우에 빈문자열 */
-			wrapper : "tx_trex_container", /* 에디터를 둘러싸고 있는 레이어 이름(에디터 컨테이너) */
+			wrapper : "container", /* 에디터를 둘러싸고 있는 레이어 이름(에디터 컨테이너) */
 			form : 'tx_editor_form' + "", /* 등록하기 위한 Form 이름 */
-			txIconPath : "images/icon/editor/", /*에디터에 사용되는 이미지 디렉터리, 필요에 따라 수정한다. */
-			txDecoPath : "images/deco/contents/", /*본문에 사용되는 이미지 디렉터리, 서비스에서 사용할 때는 완성된 컨텐츠로 배포되기 위해 절대경로로 수정한다. */
+			txIconPath : "${R}res/daumeditor/images/icon/editor/", /*에디터에 사용되는 이미지 디렉터리, 필요에 따라 수정한다. */
+			txDecoPath : "${R}res/daumeditor/images/deco/contents/", /*본문에 사용되는 이미지 디렉터리, 서비스에서 사용할 때는 완성된 컨텐츠로 배포되기 위해 절대경로로 수정한다. */
 			canvas : {
 				exitEditor : {
 				/*
@@ -707,6 +739,7 @@
 			var editor = new Editor(config);
 		});
 	</script>
+	<%-- 
 
 	<!-- Sample: Saving Contents -->
 	<script type="text/javascript">
@@ -792,9 +825,9 @@
 
 	<!-- Sample: Loading Contents -->
 	<textarea id="sample_contents_source" style="display: none;">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>등산은 재미있을지도 모른다 하지만 나는 안다닌다</p>
 	<p style="text-align: center;">
-		<img src="http://cfile273.uf.daum.net/image/2064CD374EE1ACCB0F15C8"
+		<img src="https://avatars3.githubusercontent.com/u/26573614?s=460&v=4"
 				class="tx-daum-image" style="clear: none; float: none;" />
 	</p>﻿
 	<p>
@@ -847,27 +880,7 @@
 			editor</button>
 	</div>
 	</div>
-
-	<div class="col-sm-2 col-md-2 sidebar">
-		<ul class="nav nav-sidebar">
-			<h4>머리</h4>
-			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
-			<li><a href="${R}board/mozip">전체 모집글</a></li>
-			<li><a href="${R}board/review">전체 후기글</a></li>
-			<li><a href="#">자유게시판</a></li>
-			<li><a href="#">추천 명산</a></li>
-		</ul>
-		<ul class="nav nav-sidebar">
-			<h4>머리</h4>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">명산</a></li>
-			<li><a href="#">기타산</a></li>
-		</ul>
-	</div>
-
-
+	--%>
 
 	<footer class="footer">
 		<div class="container">

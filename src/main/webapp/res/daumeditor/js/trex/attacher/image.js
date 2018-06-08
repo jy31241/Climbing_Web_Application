@@ -46,8 +46,8 @@ TrexConfig.addAttacher(
 		boxonly: _FALSE,
 		wysiwygonly: _TRUE,
 		objattr: {},
-		features: { left:250, top:65, width:797, height:644 },
-		popPageUrl: "#host#path/pages/trex/image.html"
+		features: { left:250, top:65, width:400, height:220, scrollbars:0},
+		popPageUrl: "image"
 	},
 	function(root){
 		var _config = TrexConfig.getAttacher("image", root);
@@ -220,4 +220,5 @@ Trex.Attachment.Image = Trex.Class.create({
 	getRegText: function(data) {
 		return new RegExp("<(?:img|IMG)[^>]*src=\"?" + data.imageurl.getRegExp() + "\"?[^>]*\/?>", "gim");
 	}
-});
+}
+);

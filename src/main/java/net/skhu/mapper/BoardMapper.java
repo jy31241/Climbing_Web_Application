@@ -10,6 +10,6 @@ import net.skhu.dto.Board;
 @Mapper
 public interface BoardMapper {
 	Board findOne(int id);
-
+	void update(Board board);
 	List<Board> findAll();
 }

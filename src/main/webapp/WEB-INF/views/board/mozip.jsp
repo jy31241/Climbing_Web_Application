@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<link rel="stylesheet" href="${R}res/common.css">
+
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -32,7 +34,8 @@
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-
+	
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -155,15 +158,11 @@
 	</div>
 
 	<div class="container">
-		<a
-			href="${R}board/review"
+		<a href="${R}board/review"
 			onclick="clickcr(this, 'btp.album', '', '', event);"
 			class="filter-50 m-tcol-c"><img
 			src="https://cafe.pstatic.net/cafe4/ico-list-album.gif" width="15"
-			height="15" alt="앨범형">후기게시판</a> &nbsp;
-			
-		<a
-			href="${R}board/mozip"
+			height="15" alt="앨범형">후기게시판</a> &nbsp; <a href="${R}board/mozip"
 			onclick="clickcr(this, 'btp.board', '', '', event);" class="m-tcol-c"><img
 			src="https://cafe.pstatic.net/cafe4/ico-list-board.gif" width="15"
 			height="15" alt="게시판형">모집게시판</a>
@@ -183,23 +182,24 @@
 			<tbody>
 
 
-			
 				<c:forEach var="board" items="${ boards }">
-				<tr data-url="boardview.do?id=${ board.id }">
-				<c:if test="${ board.boardType_id ==1 }"> <!-- 보드타입이 1인것만 출력(모집게시판이 보드타입1) -->
-					<td>${ board.id }</td>
-					<td>${ board.title }</td>
-					<td>${ board.user_id }</td>
-					<td>${ board.createdDate }</td>
-					<td>${ board.recommend }</td>
-					<td>${ board.views }</td>
+					<tr data-url="mozipcontent?id=${ board.id }">
+						<c:if test="${ board.boardType_id ==1 }">
+							<!-- 보드타입이 1인것만 출력(모집게시판이 보드타입1) -->
+							<td>${ board.id }</td>
+							<td>${ board.title }</td>
+							<td>${ board.user_id }</td>
+							<td>${ board.createdDate }</td>
+							<td>${ board.recommend }</td>
+							<td>${ board.views }</td>
 					</tr>
 					</c:if>
 				</c:forEach>
 			</tbody>
 		</table>
-		
-		<a class="btn btn-default" href="${R}board/write" role="button">글 작성하기</a>
+
+		<a class="btn btn-default" href="${R}board/write" role="button">글
+			작성하기</a>
 	</div>
 
 
