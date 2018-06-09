@@ -78,7 +78,7 @@
 .bodycol {
 	background-color: #fdfdfd;
 }
-.login {
+.signup {
 	height: 200px;
 	width: 600px;
 	padding-left:300px;
@@ -160,25 +160,32 @@
 		</ul>
 	</div>
 	
-	<div class="login">
-		<h1>로그인</h1>
-		<form method="post" action="login_processing">
+	<div class="signup">
+		<h1>회원 가입</h1>
+		<form method="post" action="sign_up">
 			<div align="center">
-				<input type="text" name="loginId" placeholder="아이디 입력" style="width:350px; padding:3px; margin-bottom:3px" />
+				<input type="text" name="loginId" placeholder="사용하고자 하는 아이디 " style="width:350px; padding:3px; margin-bottom:3px" />
 			</div>
 			<div align="center">
-				<input type="password" name="passwd" placeholder="비밀번호 입력" style="width:350px; padding:3px;margin-bottom:3px" />
+				<input type="password" name="passwd1" placeholder="비밀번호 입력" style="width:350px; padding:3px;margin-bottom:3px" />
+			</div>
+			<div align="center">
+				<input type="password" name="passwd2" placeholder="비밀번호 재입력" style="width:350px; padding:3px;margin-bottom:3px" />
+			</div>
+			<div align="center">
+				<input type="email" name="email" placeholder="인증가능한 이메일 " style="width:350px; padding:3px; margin-bottom:3px" />
+			</div>
+			<div align="center">
+				<input type="text" name="nickname" placeholder="사용하고자 하는  닉네임 " style="width:350px; padding:3px; margin-bottom:3px" />
 			</div>
 			<div align="center">
 				<button type="submit" class="btn btn-primary" style="width: 350px; padding:3px" >
-				<span class="glyphicon glyphicon-ok"></span>로그인</button>
+				<span class="glyphicon glyphicon-ok"></span>회원가입</button>
 			</div>
 		</form>
-		<span>아직 회원이 아니신가요?</span>
-		<span><a href="${R}guest/signup">회원가입</a></span>
-		<p>
-		<span>비밀번호를 잃어버리셨나요?</span>
-		<span><a href="#">비밀번호 찾기</a></span>
+		<span>이미 회원 이신가요?</span>
+		<span><a href="${R}guest/login">로그인</a></span>
+		
 	</div>
 
 
