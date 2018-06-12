@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -84,7 +85,6 @@
 	padding-left:300px;
 }
 </style>
-<!--글 작성 폼 크기에따라 사이즈 조절 -->
 
 
 
@@ -162,15 +162,15 @@
 	
 	<div class="signup">
 		<h1>회원 가입</h1>
-		<form method="post" action="sign_up">
+		<form:form method="post" action="signup" id="my-form" modelAttribute="user" >
 			<div align="center">
 				<input type="text" name="loginId" placeholder="사용하고자 하는 아이디 " style="width:350px; padding:3px; margin-bottom:3px" />
 			</div>
 			<div align="center">
-				<input type="password" name="passwd1" placeholder="비밀번호 입력" style="width:350px; padding:3px;margin-bottom:3px" />
+				<input type="password" name="passwd1" placeholder="비밀번호 입력" id="passwd1" style="width:350px; padding:3px;margin-bottom:3px" />
 			</div>
 			<div align="center">
-				<input type="password" name="passwd2" placeholder="비밀번호 재입력" style="width:350px; padding:3px;margin-bottom:3px" />
+				<input type="password" name="passwd2" placeholder="비밀번호 재입력" id="passwd2" style="width:350px; padding:3px;margin-bottom:3px" />
 			</div>
 			<div align="center">
 				<input type="email" name="email" placeholder="인증가능한 이메일 " style="width:350px; padding:3px; margin-bottom:3px" />
@@ -182,7 +182,7 @@
 				<button type="submit" class="btn btn-primary" style="width: 350px; padding:3px" >
 				<span class="glyphicon glyphicon-ok"></span>회원가입</button>
 			</div>
-		</form>
+		</form:form>
 		<span>이미 회원 이신가요?</span>
 		<span><a href="${R}guest/login">로그인</a></span>
 		

@@ -23,8 +23,8 @@
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT
-		user (userId, password, email, nickName)
-		VALUES (#{userId},#{password}, #{email}, #{nickName})
+		user (userType_id,userId, password,grade, email, nickName,signupDate)
+		VALUES (2,#{userId},#{password},1, #{email}, #{nickName},now())
 	</insert>
 	
   <update id="update">
