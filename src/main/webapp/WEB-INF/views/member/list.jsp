@@ -104,7 +104,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="member/list">회원목록</a></li>
+						<li><a href="${R}member/list">회원목록</a></li>
 						<li><a href="#">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 					</ul>

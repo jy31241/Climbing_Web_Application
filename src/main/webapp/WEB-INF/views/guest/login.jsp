@@ -160,7 +160,7 @@
 		</ul>
 	</div>
 	
-	<div class="login">
+	<div class="login container">
 		<h1>로그인</h1>
 		<form method="post" action="login_processing">
 			<div align="center">

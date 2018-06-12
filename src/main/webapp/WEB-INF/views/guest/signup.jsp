@@ -160,7 +160,7 @@
 		</ul>
 	</div>
 	
-	<div class="signup">
+	<div class="signup container">
 		<h1>회원 가입</h1>
 		<form:form method="post" action="signup" id="my-form" modelAttribute="user" >
 			<div align="center">

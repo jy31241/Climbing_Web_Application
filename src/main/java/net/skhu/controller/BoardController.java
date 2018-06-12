@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +52,14 @@ public class BoardController {
 		return "board/bestreview";
 	}
 
-	@RequestMapping("write")
-	public String write(Model model) {
-		return "board/write";
+	@RequestMapping("mozipwrite")
+	public String mozipwrite(Model model) {
+		return "board/mozipwrite";
+	}
+
+	@RequestMapping("reviewwrite")
+	public String reviewwrite(Model model) {
+		return "board/reviewwrite";
 	}
 
 	@RequestMapping("image")
@@ -68,12 +74,47 @@ public class BoardController {
 		return "board/mozipcontent";
 	}
 
-	@RequestMapping("upload")
-	public String upload(Model model,Board board) {
-		boardMapper.update(board);
+	@RequestMapping("reviewcontent")
+	public String reviewcontent(Model model,@RequestParam("id")int id) {
+		Board board= boardMapper.findOne(id);
 		model.addAttribute("board", board);
-		return "board/upload";
+		return "board/reviewcontent";
 	}
+
+	@RequestMapping(value = "/mozipupload")
+	public String mozipupload(HttpServletRequest httprequest) {
+
+		HashMap<String, String> param = new HashMap<String, String>();
+
+		param.put("title", httprequest.getParameter("title"));
+		param.put("text", httprequest.getParameter("text"));
+		param.put("createdDate", httprequest.getParameter("createdDate"));
+		param.put("startDate", httprequest.getParameter("startDate"));
+		param.put("endDate", httprequest.getParameter("endDate"));
+		param.put("cost", httprequest.getParameter("cost"));
+		param.put("person", httprequest.getParameter("person"));
+		param.put("boardType_id", "1");
+
+		boardMapper.insert(param);
+		return "redirect:/board/mozip";
+	}
+
+	@RequestMapping(value = "/reviewupload")
+	public String reivewupload(HttpServletRequest httprequest) {
+
+		HashMap<String, String> param = new HashMap<String, String>();
+
+		param.put("title", httprequest.getParameter("title"));
+		param.put("text", httprequest.getParameter("text"));
+		param.put("createdDate", httprequest.getParameter("createdDate"));
+		param.put("startDate", httprequest.getParameter("startDate"));
+		param.put("endDate", httprequest.getParameter("endDate"));
+		param.put("boardType_id", "2");
+
+		boardMapper.insert(param);
+		return "redirect:/board/review";
+	}
+
 
 	@RequestMapping(value = "/singleUploadImageAjax", method = RequestMethod.POST)
 	public @ResponseBody HashMap singleUploadImageAjax(@RequestParam("Filedata") MultipartFile multipartFile,

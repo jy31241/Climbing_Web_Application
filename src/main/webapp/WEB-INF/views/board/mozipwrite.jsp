@@ -94,7 +94,6 @@
 <!--글 작성 폼 크기에따라 사이즈 조절 -->
 
 </head>
-</head>
 <body class="bodycol">
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -164,18 +163,18 @@
 			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
-
-
 	<div class="container">
-		<h1>글 작성 다음에디터</h1>
-		<!-- 에디터 시작 -->
-		<!--
-		@decsription
-		등록하기 위한 Form으로 상황에 맞게 수정하여 사용한다. Form 이름은 에디터를 생성할 때 설정값으로 설정한다.
-	-->
-		<form name="tx_editor_form" id="tx_editor_form"
-			action="http://posttestserver.com/post.php" method="post"
-			accept-charset="utf-8">
+		<h1>모집글 작성</h1>
+
+		<form method="post" action="${R}board/mozipupload" name="tx_editor_form" id="tx_editor_form" class="form-inline">
+		<div class="form-group">
+			<input 	class="form-control" id="startDate" type="date" name="startDate"> ~
+			<input 	class="form-control" id="endDate" type="date" name="endDate"></br></br>
+			<input class="form-control" id="person" type="text" placeholder="모집 인원" name="person">
+            <input class="form-control" id="cost" type="text" placeholder="예상 회비(원)" name="cost"></br></br>
+            <input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요."></input></br></br>
+			</div>
+
 			<!-- 에디터 컨테이너 시작 -->
 			<div id="tx_trex_container" class="tx-editor-container">
 				<!-- 사이드바 -->
@@ -630,8 +629,7 @@
 						<iframe id="tx_canvas_wysiwyg" name="tx_canvas_wysiwyg"
 							allowtransparency="true" frameborder="0"></iframe>
 					</div>
-					<div class="tx-source-deco">
-						<div id="tx_canvas_source_holder" class="tx-holder">
+					<div id="tx_canvas_source_holder" class="tx-holder">
 							<textarea id="tx_canvas_source" rows="30" cols="30"></textarea>
 						</div>
 					</div>
@@ -651,7 +649,6 @@
 						<img hspace="4" height="14" width="78" align="absmiddle"
 							src="${R}res/daumeditor/images/icon/editor/editor_bi.png" />
 					</div>
-					<button class="btn btn-default" type="submit" onclick="location.href='${R}board/upload'">제출</button>
 				</div>
 				<!-- 편집영역 끝 -->
 				<!-- 첨부박스 시작 -->
@@ -683,7 +680,9 @@
 						</div>
 					</div>
 				</div>
-				<!-- 첨부박스 끝 -->
+			<input type="submit" name="업로드" value="작성하기" id="mozipupload"
+				class="btn btn-default" onclick='saveContent()'>
+			<!-- 첨부박스 끝 -->
 				<!-- 에디터 컨테이너 끝 -->
 		</form>
 	</div>
@@ -738,6 +737,32 @@
 		EditorJSLoader.ready(function(Editor) {
 			var editor = new Editor(config);
 		});
+
+		function saveContent() {
+			Editor.save(); // 이 함수를 호출하여 글을 등록하면 된다.
+		}
+
+		/**
+		 * Editor.save()를 호출한 경우 데이터가 유효한지 검사하기 위해 부르는 콜백함수로
+		 * 상황에 맞게 수정하여 사용한다.
+		 * 모든 데이터가 유효할 경우에 true를 리턴한다.
+		 * @function
+		 * @param {Object} editor - 에디터에서 넘겨주는 editor 객체
+		 * @returns {Boolean} 모든 데이터가 유효할 경우에 true
+		 */
+		function validForm(editor) {
+			// Place your validation logic here
+
+			// sample : validate that content exists
+			var validator = new Trex.Validator();
+			var content = editor.getContent();
+			if (!validator.exists(content)) {
+				alert('내용을 입력하세요');
+				return false;
+			}
+
+			return true;
+		}
 	</script>
 	<%-- 
 
