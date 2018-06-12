@@ -10,6 +10,12 @@ public class Board {
 	int user_id;
 	int region_id;
 	String text;
+	String startDate;
+	String endDate;
+	int person;
+	int cost;
+	int nowperson;
+	int mountain_id;
 
 	public String getText() {
 		return text;
@@ -83,6 +89,53 @@ public class Board {
 		this.region_id = region_id;
 	}
 
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public int getPerson() {
+		return person;
+	}
+
+	public void setPerson(int person) {
+		this.person = person;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public int getNowperson() {
+		return nowperson;
+	}
+
+	public void setNowperson(int nowperson) {
+		this.nowperson = nowperson;
+	}
+
+	public int getMountain_id() {
+		return mountain_id;
+	}
+
+	public void setMountain_id(int mountain_id) {
+		this.mountain_id = mountain_id;
+	}
 
 
 }

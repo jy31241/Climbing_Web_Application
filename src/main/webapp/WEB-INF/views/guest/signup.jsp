@@ -160,7 +160,7 @@
 		</ul>
 	</div>
 	
-	<div class="signup">
+	<div class="signup container">
 		<h1>회원 가입</h1>
 		<form method="post" action="sign_up">
 			<div align="center">

@@ -155,8 +155,10 @@
 	</div>
 
 	<div class="container">
+	<h1>모집 게시글</h1>
 		<table class="table table-bordered mt5">
-			<h2>${board.title}<small>&nbsp;&nbsp;&nbsp;&nbsp;${board.createdDate}</small></h2>
+			<h3>${board.title}<small>&nbsp;&nbsp;&nbsp;&nbsp; 작성일 : ${board.createdDate}</small></h3>
+			<h4>예상 회비 : ${board.cost } 원 &nbsp;&nbsp;&nbsp;&nbsp; 등산 날짜 : ${board.startDate } ~ ${board.endDate }</h3>
 			<p class="lead">${ board.text }</p>
 		</table>
 
@@ -169,6 +171,7 @@
 			<!-- 후기게시글 조회 하면 후기게시판 목록으로 돌아가기 버튼 -->
 			<a class="btn btn-default" href="${R}board/review" role="button">목록으로</a>
 		</c:if>
+		<a class="btn btn-default" href="${R}" role="button">신청하기</a>
 
 
 		<footer class="footer">

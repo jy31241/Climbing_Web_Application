@@ -174,6 +174,7 @@
 					<th>글번호</th>
 					<th>글제목</th>
 					<th>작성자</th>
+					<th>모집인원</th>
 					<th>작성일</th>
 					<th>추천수</th>
 					<th>조회수</th>
@@ -189,6 +190,7 @@
 							<td>${ board.id }</td>
 							<td>${ board.title }</td>
 							<td>${ board.user_id }</td>
+							<td>${ board.nowperson } / ${ board.person } </td>
 							<td>${ board.createdDate }</td>
 							<td>${ board.recommend }</td>
 							<td>${ board.views }</td>
@@ -198,7 +200,7 @@
 			</tbody>
 		</table>
 
-		<a class="btn btn-default" href="${R}board/write" role="button">글
+		<a class="btn btn-default" href="${R}board/mozipwrite" role="button">글
 			작성하기</a>
 	</div>
 

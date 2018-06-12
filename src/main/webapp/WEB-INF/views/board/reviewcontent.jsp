@@ -7,8 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="${R}res/common.css">
-
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -35,7 +33,6 @@
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
 
-<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -87,7 +84,6 @@
 
 
 </head>
-<html>
 <body class="bodycol">
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -157,50 +153,37 @@
 			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
-
+	
 	<div class="container">
-		<a href="${R}board/review"
-			onclick="clickcr(this, 'btp.album', '', '', event);"
-			class="filter-50 m-tcol-c"><img
-			src="https://cafe.pstatic.net/cafe4/ico-list-album.gif" width="15"
-			height="15" alt="앨범형">후기게시판</a> &nbsp; <a href="${R}board/mozip"
-			onclick="clickcr(this, 'btp.board', '', '', event);" class="m-tcol-c"><img
-			src="https://cafe.pstatic.net/cafe4/ico-list-board.gif" width="15"
-			height="15" alt="게시판형">모집게시판</a>
-
-		<h1>산 후기게시판</h1>
+	<h1>후기 게시글</h1>
 		<table class="table table-bordered mt5">
-			<tbody>
-				<c:forEach var="board" items="${ boards }">
-					<tr data-url="reviewcontent?id=${ board.id }">
-						<c:if test="${ board.boardType_id ==2 }">
-							<!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
-							<td>사진자리</td>
-							<td><h4>${ board.title } <small>${board.createdDate }</small></h4></br>
-							 ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp;
-								조회수:${ board.views }&nbsp;
-							</td>
-					</tr>
-					</c:if>
-				</c:forEach>
-			</tbody>
+			<h3>${board.title}<small>&nbsp;&nbsp;&nbsp;&nbsp; 작성일 : ${board.createdDate}</small></h3>
+			<h3>등산 날짜 : ${board.startDate } ~ ${board.endDate }</h3>
+			<div class="col-sm-20">
+				<p class="form-control-static">${ board.text }</p>
+			</div>
 		</table>
 
-		<a class="btn btn-default" href="${R}board/reviewwrite" role="button">글작성하기</a>
+		<c:if test="${ board.boardType_id ==1 }">
+			<!-- 모집게시글 조회 하면 모집게시판 목록으로 돌아가기 버튼 -->
+			<a class="btn btn-default" href="${R}board/mozip" role="button">목록으로</a>
+		</c:if>
+
+		<c:if test="${ board.boardType_id ==2 }">
+			<!-- 후기게시글 조회 하면 후기게시판 목록으로 돌아가기 버튼 -->
+			<a class="btn btn-default" href="${R}board/review" role="button">목록으로</a>
+		</c:if>
+
+
+		<footer class="footer">
+			<div class="container">
+				<p class="text-muted">
+					Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#">
+						이용약관 </a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333
+					</a>|
+				</p>
+		</footer>
 	</div>
-
-
-	<footer class="footer">
-		<div class="container">
-			<p class="text-muted">
-				Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#"> 이용약관
-				</a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333 </a>|
-			</p>
-
-
-		</div>
-	</footer>
-
-
+	</div>
 </body>
 </html>
