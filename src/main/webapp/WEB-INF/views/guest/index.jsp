@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -78,11 +79,6 @@
 .bodycol {
 	background-color: #fdfdfd;
 }
-.login {
-	height: 200px;
-	width: 600px;
-	padding-left:300px;
-}
 </style>
 <!--글 작성 폼 크기에따라 사이즈 조절 -->
 
@@ -111,7 +107,15 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="${R}member/list">회원목록</a></li>
 						<li><a href="#">마이페이지</a></li>
-						<li><a href="${R}guest/login">로그인</a></li>
+						<li>
+							<sec:authorize access="not authenticated">  
+   							  <a href="${R}guest/login">로그인</a>
+  							</sec:authorize>
+  							<sec:authorize access="authenticated">
+   							   <a href="${R}user/logout_processing">로그아웃</a>
+  							</sec:authorize>
+						
+						</li>
 
 					</ul>
 
@@ -160,29 +164,12 @@
 		</ul>
 	</div>
 	
-	<div class="login container">
-		<h1>로그인</h1>
-		<form method="post" action="login_processing">
-			<div align="center">
-				<input type="text" name="userId" placeholder="아이디 입력" style="width:350px; padding:3px; margin-bottom:3px" />
-			</div>
-			<div align="center">
-				<input type="password" name="password" placeholder="비밀번호 입력" style="width:350px; padding:3px;margin-bottom:3px" />
-			</div>
-			<div align="center">
-				<button type="submit" class="btn btn-primary" style="width: 350px; padding:3px" >
-				<span class="glyphicon glyphicon-ok"></span>로그인</button>
-			</div>
-		</form>
-		<c:if test="${ param.error != null }">
-    		<div class="mt5">로그인 실패</div>
-  		</c:if>
-		<span>아직 회원이 아니신가요?</span>
-		<span><a href="${R}guest/signup">회원가입</a></span>
-		<p>
-		<span>비밀번호를 잃어버리셨나요?</span>
-		<span><a href="#">비밀번호 찾기</a></span>
+	<div class="container">
+	
+	<h1> 홈화면 </h1>
 	</div>
+
+
 
 
 	<footer class="footer">

@@ -14,23 +14,27 @@ import net.skhu.dto.User;
 import net.skhu.mapper.UserMapper;
 
 @Controller
-@RequestMapping("/guest")
 public class GuestController {
 
 	@Autowired	UserMapper userMapper;
 
-	@RequestMapping("login")
-    public String login(Model model) {
+	@RequestMapping({"/", "guest/index"})
+    public String index() {
+        return "guest/index";
+    }
+
+    @RequestMapping("guest/login")
+    public String login() {
         return "guest/login";
     }
 
-	@RequestMapping(value="signup", method=RequestMethod.GET)
+	@RequestMapping(value="guest/signup", method=RequestMethod.GET)
 	public String signUp(Model model) {
 
 		return "guest/signup";
 	}
 
-	@RequestMapping(value="signup", method=RequestMethod.POST)
+	@RequestMapping(value="guest/signup", method=RequestMethod.POST)
 	public String signUp(Model model,HttpServletRequest request) {
 		User user =new User();
 		user.setUserId(request.getParameter("loginId"));
