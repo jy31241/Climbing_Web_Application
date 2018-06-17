@@ -8,5 +8,3 @@ Spring Boot , Mybatis
 
 * * *
 
-현우 깃 테스트
-
