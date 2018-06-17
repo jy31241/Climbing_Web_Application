@@ -22,6 +22,11 @@ public class UserController {
         return "user/index";
     }
 
+    @RequestMapping("user/mypage")
+    public String mypage() {
+        return "user/mypage";
+    }
+
 
     @RequestMapping("member/list")
     public String list(Model model) {

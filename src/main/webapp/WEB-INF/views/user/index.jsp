@@ -105,8 +105,8 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><sec:authentication property="user.nickName" /></li>
-						<li><a href="#">마이페이지</a></li>
+						<li><a><sec:authentication property="user.nickName" />님</a></li>
+						<li><a href="${R}user/mypage">마이페이지</a></li>
 						<li><a href="logout_processing">로그아웃</a></li>
 
 					</ul>

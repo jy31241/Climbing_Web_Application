@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -109,9 +110,9 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="${R}member/list">회원목록</a></li>
-						<li><a href="#">마이페이지</a></li>
-						<li><a href="${R}guest/login">로그인</a></li>
+						<li><a><sec:authentication property="user.nickName" />님</a></li>
+						<li><a href="${R}user/mypage">마이페이지</a></li>
+						<li><a href="logout_processing">로그아웃</a></li>
 
 					</ul>
 
@@ -162,7 +163,28 @@
 	
 	<div class="mypage container">
 		<h1>My Page </h1>
-		
+		<table>
+			<tr>
+				<td width="382">아이디</td>
+				<td width="602"><sec:authentication property="user.userId" /></td>
+			</tr>
+			<tr>
+				<td>닉네임</td>
+				<td><sec:authentication property="user.nickName" /></td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td><sec:authentication property="user.email" /></td>
+			</tr>
+			<tr>
+				<td>등급</td>
+				<td><sec:authentication property="user.grade" /></td>
+			</tr>
+			<tr>
+				<td>가입일</td>
+				<td><sec:authentication property="user.signupDate" /></td>
+			</tr>
+		</table>
 	</div>
 
 
