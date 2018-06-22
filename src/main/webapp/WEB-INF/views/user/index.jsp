@@ -168,7 +168,7 @@
 		<div class="container">
 			<p class="text-muted">
 				Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#"> 이용약관
-				</a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333 </a>|
+				</a>| <a href="#"> 고객센터 </a>|전화번호:010-2222-3333|
 			</p>
 
 

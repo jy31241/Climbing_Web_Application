@@ -108,8 +108,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="${R}member/list">회원목록</a></li>
-						<li><a href="#">마이페이지</a></li>
+						<li><a href="${R}user/mypage">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 					</ul>
 
@@ -176,9 +175,10 @@
 						<c:if test="${ board.boardType_id ==2 }">
 							<!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
 							<td>사진자리</td>
-							<td><h4>${ board.title } <small>${board.createdDate }</small></h4></br>
-							 ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp;
-								조회수:${ board.views }&nbsp;
+							<td><h4>${ board.title }
+									<small>${board.createdDate }</small>
+								</h4>
+								</br> ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp; 조회수:${ board.views }&nbsp;
 							</td>
 					</tr>
 					</c:if>
@@ -194,13 +194,12 @@
 		<div class="container">
 			<p class="text-muted">
 				Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#"> 이용약관
-				</a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333 </a>|
+				</a>| <a href="#"> 고객센터 </a>|전화번호:010-2222-3333|
 			</p>
 
 
 		</div>
 	</footer>
-
 
 </body>
 </html>

@@ -54,7 +54,7 @@
 		border-left: 1px #b1adad dashed;
 	}
 }
-
+	
 @media ( min-width : 992px) {
 	.container {
 		width: 540px;
@@ -114,8 +114,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="${R}member/list">회원목록</a></li>
-						<li><a href="#">마이페이지</a></li>
+						<li><a href="${R}user/mypage">마이페이지</a></li>
 						<li><a href="#">로그인</a></li>
 					</ul>
 
@@ -763,6 +762,16 @@
 
 			return true;
 		}
+		 
+		 function setForm(editor) {
+			 var form = editor.getForm(); 
+			 var content = editor.getContent(); 
+			 var textarea = document.createElement('textarea'); //textarea를 생성하여 해당태그에 에디터 입력값들을 신규생성 textarea에 담는다 
+			 textarea.name = 'text'; 
+			 textarea.value = content; 
+			 form.createField(textarea); 
+			 return true; 
+		}
 	</script>
 	<%-- 
 
@@ -911,7 +920,7 @@
 		<div class="container">
 			<p class="text-muted">
 				Copyright ⓒ 2018 모두의 등산 All Rights Reserved. | <a href="#"> 이용약관
-				</a>| <a href="#"> 고객샌터 </a>| <a href="#"> 전화번호:010-2222-3333 </a>|
+				</a>| <a href="#"> 고객센터 </a>|전화번호:010-2222-3333|
 			</p>
 
 

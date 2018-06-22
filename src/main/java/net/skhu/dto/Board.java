@@ -17,6 +17,7 @@ public class Board {
 	int nowperson;
 	int mountain_id;
 
+
 	public String getText() {
 		return text;
 	}

@@ -1,4 +1,4 @@
-(function() {
+	(function() {
     /**
      * WYSIWYG 편집 영역에 해당하는 <iframe> 을 초기화한다.
      * document.write 방식을 이용하여 iframe을 초기화 하며, 용
@@ -119,7 +119,7 @@
             '<style id="txStyleForSetRule"></style>' +
 			'</head>' +
             '<body class="tx-content-container">' +
-            $tom.EMPTY_PARAGRAPH_HTML +
+            $tom.EMPTY_PARAGRAPH_HTML + 
             '</body></html>';
 
 })();
