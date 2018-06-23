@@ -12,6 +12,11 @@
 	<select id="findAll" resultType="Board">
 		Select * from board
 	</select>
+	
+	<select id="findAllbyRegion" resultType="Board">
+		select * from board
+		where region_id =#{id} 
+	</select>
  	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO `board` (`title`, `text`,`createdDate`,`boardType_id`,`startDate`,`endDate`,`person`,`cost`) 

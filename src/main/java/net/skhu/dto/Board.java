@@ -16,7 +16,7 @@ public class Board {
 	int cost;
 	int nowperson;
 	int mountain_id;
-
+	String regionName;
 
 	public String getText() {
 		return text;
@@ -136,6 +136,14 @@ public class Board {
 
 	public void setMountain_id(int mountain_id) {
 		this.mountain_id = mountain_id;
+	}
+
+	public String getRegionName() {
+		return regionName;
+	}
+
+	public void setRegionName(String regionName) {
+		this.regionName = regionName;
 	}
 
 

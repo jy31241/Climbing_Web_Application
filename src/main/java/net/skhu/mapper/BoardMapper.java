@@ -13,4 +13,5 @@ public interface BoardMapper {
 	Board findOne(int id);
 	void insert(HashMap param);
 	List<Board> findAll();
+	List<Board> findAllbyRegion(int id);
 }

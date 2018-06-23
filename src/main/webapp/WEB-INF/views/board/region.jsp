@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="${R}res/common.css">
 
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
@@ -34,6 +35,7 @@
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
 
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -85,6 +87,7 @@
 
 
 </head>
+<html>
 <body class="bodycol">
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -105,10 +108,8 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a><sec:authentication property="user.nickName" />님</a></li>
 						<li><a href="${R}user/mypage">마이페이지</a></li>
-						<li><a href="logout_processing">로그아웃</a></li>
-
+						<li><a href="#">로그인</a></li>
 					</ul>
 
 					<form class="navbar-form navbar-left">
@@ -128,7 +129,7 @@
 			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
 			<li><a href="${R}board/mozip">전체 모집글</a></li>
 			<li><a href="${R}board/review">전체 후기글</a></li>
-			<li><a href="${R}board/free">자유게시판</a></li>
+			<li><a href="#">자유게시판</a></li>
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
@@ -146,22 +147,79 @@
 		</ul>
 		<ul class="nav nav-sidebar">
 			<h4>지역</h4>
-			<li><a href="${R}board/region?id=1">서울</a></li>
-			<li><a href="${R}board/region?id=2">경기/인천</a></li>
-			<li><a href="${R}board/region?id=3">충청도</a></li>
-			<li><a href="${R}board/region?id=4">강원도</a></li>
-			<li><a href="${R}board/region?id=5">경상도</a></li>
-			<li><a href="${R}board/region?id=6">전라도</a></li>
-			<li><a href="${R}board/region?id=7">제주도</a></li>
+			<li><a href="#">서울</a></li>
+			<li><a href="#">경기/인천</a></li>
+			<li><a href="#">충청도</a></li>
+			<li><a href="#">강원도</a></li>
+			<li><a href="#">경상도</a></li>
+			<li><a href="#">전라도</a></li>
+			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
-	
+
 	<div class="container">
-	
-	<h1> 홈화면 </h1>
+		<h1>산 후기게시판</h1>
+		<table class="table table-bordered mt5">
+			<tbody>
+			
+				<c:forEach var="board" items="${ boards }">
+					<tr data-url="reviewcontent?id=${ board.id }">
+						<c:if test="${ board.boardType_id ==2 }">
+							<!-- 보드타입이 2인것만 출력(후기게시판이 보드타입2) -->
+							<td>사진자리</td>
+							<td><h4>${ board.title }
+									<small>${board.createdDate }</small>
+								</h4>
+								</br> ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp; 조회수:${ board.views }&nbsp;
+							</td>
+					</tr>
+					</c:if>
+				</c:forEach>
+			</tbody>
+		</table>
+
+		
+
+		<a class="btn btn-default" href="${R}board/reviewwrite" role="button">글작성하기</a>
+		
+		
+		<h1>산 모집게시판</h1>
+		<table class="table table-bordered mt5">
+			<thead>
+				<tr>
+					<th>글번호</th>
+					<th>글제목</th>
+					<th>작성자</th>
+					<th>모집인원</th>
+					<th>작성일</th>
+					<th>추천수</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+
+
+				<c:forEach var="board" items="${ boards }">
+					<tr data-url="mozipcontent?id=${ board.id }">
+						<c:if test="${ board.boardType_id ==1 }">
+							<!-- 보드타입이 1인것만 출력(모집게시판이 보드타입1) -->
+							<td>${ board.id }</td>
+							<td>${ board.title }</td>
+							<td>${ board.user_id }</td>
+							<td>${ board.nowperson } / ${ board.person } </td>
+							<td>${ board.createdDate }</td>
+							<td>${ board.recommend }</td>
+							<td>${ board.views }</td>
+					</tr>
+					</c:if>
+				</c:forEach>
+			</tbody>
+		</table>
+
+		<a class="btn btn-default" href="${R}board/mozipwrite" role="button">글
+			작성하기</a>
+		
 	</div>
-
-
 
 
 	<footer class="footer">
@@ -174,7 +232,6 @@
 
 		</div>
 	</footer>
-
 
 </body>
 </html>

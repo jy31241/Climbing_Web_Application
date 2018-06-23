@@ -52,6 +52,13 @@ public class BoardController {
 		return "board/free";
 	}
 
+	@RequestMapping("region")
+	public String region(Model model , @RequestParam("id")int id) {
+		List<Board> boards = boardMapper.findAllbyRegion(id);
+		model.addAttribute("boards", boards);
+		return "board/region";
+	}
+
 	@RequestMapping("bestreview")
 	public String bestreview(Model model) {
 		List<Board> boards = boardMapper.findAll();
