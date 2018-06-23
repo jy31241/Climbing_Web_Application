@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
@@ -105,10 +104,8 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a><sec:authentication property="user.nickName" />님</a></li>
 						<li><a href="${R}user/mypage">마이페이지</a></li>
-						<li><a href="logout_processing">로그아웃</a></li>
-
+						<li><a href="#">로그인</a></li>
 					</ul>
 
 					<form class="navbar-form navbar-left">
@@ -128,7 +125,7 @@
 			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
 			<li><a href="${R}board/mozip">전체 모집글</a></li>
 			<li><a href="${R}board/review">전체 후기글</a></li>
-			<li><a href="${R}board/free">자유게시판</a></li>
+			<li><a href="#">자유게시판</a></li>
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
@@ -155,12 +152,18 @@
 			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
-	
-	<div class="container">
-	
-	<h1> 홈화면 </h1>
-	</div>
 
+	<div class="container">
+	<h1>자유 게시글</h1>
+		<table class="table table-bordered mt5">
+			<h3>${board.title}<small>&nbsp;&nbsp;&nbsp;&nbsp; 작성일 : ${board.createdDate}</small></h3>
+			<p class="lead">${ board.text }</p>
+		</table>
+
+		<c:if test="${ board.boardType_id ==3 }">
+			<!-- 모집게시글 조회 하면 자유게시판 목록으로 돌아가기 버튼 -->
+			<a class="btn btn-default" href="${R}board/free" role="button">목록으로</a>
+		</c:if>
 
 
 
@@ -174,7 +177,6 @@
 
 		</div>
 	</footer>
-
-
+	</div>
 </body>
 </html>

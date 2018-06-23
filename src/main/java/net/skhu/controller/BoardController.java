@@ -45,6 +45,13 @@ public class BoardController {
 		return "board/review";
 	}
 
+	@RequestMapping("free")
+	public String free(Model model) {
+		List<Board> boards = boardMapper.findAll();
+		model.addAttribute("boards", boards);
+		return "board/free";
+	}
+
 	@RequestMapping("bestreview")
 	public String bestreview(Model model) {
 		List<Board> boards = boardMapper.findAll();
@@ -55,6 +62,11 @@ public class BoardController {
 	@RequestMapping("mozipwrite")
 	public String mozipwrite(Model model) {
 		return "board/mozipwrite";
+	}
+
+	@RequestMapping("freewrite")
+	public String freewrite(Model model) {
+		return "board/freewrite";
 	}
 
 	@RequestMapping("reviewwrite")
@@ -72,6 +84,12 @@ public class BoardController {
 		Board board= boardMapper.findOne(id);
 		model.addAttribute("board", board);
 		return "board/mozipcontent";
+	}
+	@RequestMapping("freecontent")
+	public String freecontent(Model model,@RequestParam("id")int id) {
+		Board board= boardMapper.findOne(id);
+		model.addAttribute("board", board);
+		return "board/freecontent";
 	}
 
 	@RequestMapping("reviewcontent")
@@ -100,6 +118,8 @@ public class BoardController {
 		return "redirect:/board/mozip";
 	}
 
+
+
 	@RequestMapping(value = "/reviewupload")
 	public String reivewupload(HttpServletRequest httprequest) {
 
@@ -116,6 +136,19 @@ public class BoardController {
 		return "redirect:/board/review";
 	}
 
+	@RequestMapping(value = "/freeupload")
+	public String freeupload(HttpServletRequest httprequest) {
+
+		HashMap<String, String> param = new HashMap<String, String>();
+
+		param.put("title", httprequest.getParameter("title"));
+		param.put("text", httprequest.getParameter("text"));
+		param.put("createdDate", httprequest.getParameter("createdDate"));
+		param.put("boardType_id", "3");
+
+		boardMapper.insert(param);
+		return "redirect:/board/free";
+	}
 
 	@RequestMapping(value = "/singleUploadImageAjax", method = RequestMethod.POST)
 	public @ResponseBody HashMap singleUploadImageAjax(@RequestParam("Filedata") MultipartFile multipartFile,

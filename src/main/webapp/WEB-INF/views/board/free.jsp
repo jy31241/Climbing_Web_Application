@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="${R}res/common.css">
 
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
@@ -33,7 +34,8 @@
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-
+	
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -105,10 +107,8 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a><sec:authentication property="user.nickName" />님</a></li>
 						<li><a href="${R}user/mypage">마이페이지</a></li>
-						<li><a href="logout_processing">로그아웃</a></li>
-
+						<li><a href="#">로그인</a></li>
 					</ul>
 
 					<form class="navbar-form navbar-left">
@@ -155,13 +155,42 @@
 			<li><a href="#">제주도</a></li>
 		</ul>
 	</div>
-	
+
 	<div class="container">
-	
-	<h1> 홈화면 </h1>
+		
+
+		<h1>자유 게시판</h1>
+		<table class="table table-bordered mt5">
+			<thead>
+				<tr>
+					<th>글제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>추천수</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+
+
+				<c:forEach var="board" items="${ boards }">
+					<tr data-url="freecontent?id=${ board.id }">
+						<c:if test="${ board.boardType_id ==3 }">
+							<!-- 보드타입이 3인것만 출력 -->
+							<td>${ board.title }</td>
+							<td>${ board.user_id }</td>
+							<td>${ board.createdDate }</td>
+							<td>${ board.recommend }</td>
+							<td>${ board.views }</td>
+					</tr>
+					</c:if>
+				</c:forEach>
+			</tbody>
+		</table>
+
+		<a class="btn btn-default" href="${R}board/freewrite" role="button">글
+			작성하기</a>
 	</div>
-
-
 
 
 	<footer class="footer">
