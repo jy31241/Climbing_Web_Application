@@ -185,7 +185,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+	
 		<a class="btn btn-default" href="${R}board/reviewwrite" role="button">글작성하기</a>
 	</div>
 

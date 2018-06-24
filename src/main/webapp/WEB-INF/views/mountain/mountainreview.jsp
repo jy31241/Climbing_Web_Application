@@ -32,7 +32,7 @@
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
