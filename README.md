@@ -7,16 +7,16 @@
 4. 후기글을 작성 하며, 추천을 많이받은 경우 베스트 후기게시판에서 글을 볼 수 있다.
 -------------
 
-###DB Sturcture
+### DB Sturcture
 ![15-1](assets/DataBase.PNG)   
 
-###홈 화면
+### 홈 화면
 ![15-2](assets/home.PNG)   
 
-###모집글 작성 화면
+### 모집글 작성 화면
 ![15-3](assets/recurit.PNG)   
 
-###POM.XML
+### POM.XML
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -112,19 +112,19 @@
 
 </project>
 ```
-###사용 기술
->Spring Boot
->Spring Security
->JSP
->AJAX
->MySQL
->MyBatis
->BootStrap   
+### 사용 기술
+> Spring Boot
+> Spring Security
+> JSP
+> AJAX
+> MySQL
+> MyBatis
+> BootStrap   
 
 ### Team
 소프트웨어공학과  
->201332012 박준영  
->201332031 전현우  
+> 201332012 박준영  
+> 201332031 전현우  
 
 
 
