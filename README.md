@@ -8,10 +8,10 @@
 -------------
 
 ###DB Sturcture
-![15-1](assets/DataBase.png)   
+![15-1](assets/DataBase.PNG)   
 
 ###홈 화면
-![15-2](assets/home.png)   
+![15-2](assets/home.PNG)   
 
 ###모집글 작성 화면
 ![15-3](assets/recurit.PNG)   
