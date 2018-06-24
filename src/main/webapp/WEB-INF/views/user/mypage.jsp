@@ -133,7 +133,7 @@
 			<li><a href="${R}board/bestreview">베스트 후기글</a></li>
 			<li><a href="${R}board/mozip">전체 모집글</a></li>
 			<li><a href="${R}board/review">전체 후기글</a></li>
-			<li><a href="#">자유게시판</a></li>
+			<li><a href="${R}board/free">자유게시판</a></li>
 			<li><a href="#">추천 명산</a></li>
 		</ul>
 		<ul class="nav nav-sidebar">
@@ -151,13 +151,13 @@
 		</ul>
 		<ul class="nav nav-sidebar">
 			<h4>지역</h4>
-			<li><a href="#">서울</a></li>
-			<li><a href="#">경기/인천</a></li>
-			<li><a href="#">충청도</a></li>
-			<li><a href="#">강원도</a></li>
-			<li><a href="#">경상도</a></li>
-			<li><a href="#">전라도</a></li>
-			<li><a href="#">제주도</a></li>
+			<li><a href="${R}board/region?id=1">서울</a></li>
+			<li><a href="${R}board/region?id=2">경기/인천</a></li>
+			<li><a href="${R}board/region?id=3">충청도</a></li>
+			<li><a href="${R}board/region?id=4">강원도</a></li>
+			<li><a href="${R}board/region?id=5">경상도</a></li>
+			<li><a href="${R}board/region?id=6">전라도</a></li>
+			<li><a href="${R}board/region?id=7">제주도</a></li>
 		</ul>
 	</div>
 	
