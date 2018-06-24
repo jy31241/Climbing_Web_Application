@@ -2,6 +2,8 @@ package net.skhu.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +12,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import net.skhu.dto.Board;
 import net.skhu.dto.User;
+import net.skhu.mapper.BoardMapper;
 import net.skhu.mapper.UserMapper;
 
 @Controller
 public class GuestController {
 
 	@Autowired	UserMapper userMapper;
+	@Autowired BoardMapper boardMapper;
 
 	@RequestMapping({"/", "guest/index"})
-    public String index() {
+    public String index(Model model) {
+		List<Board> boardBest = boardMapper.findByBestLimit();
+		List<Board> boardMozip= boardMapper.findByLastestMozip();
+		model.addAttribute("boardBest", boardBest);
+		model.addAttribute("boardMozip", boardMozip);
         return "guest/index";
     }
 

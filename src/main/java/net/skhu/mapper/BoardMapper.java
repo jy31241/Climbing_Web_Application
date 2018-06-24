@@ -14,4 +14,6 @@ public interface BoardMapper {
 	void insert(HashMap param);
 	List<Board> findAll();
 	List<Board> findAllbyRegion(int id);
+	List<Board> findByBestLimit();
+	List<Board> findByLastestMozip();
 }

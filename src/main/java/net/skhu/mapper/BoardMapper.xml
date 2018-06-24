@@ -11,12 +11,30 @@
 
 	<select id="findAll" resultType="Board">
 		Select * from board
+		order by createdDate DESC
 	</select>
 	
 	<select id="findAllbyRegion" resultType="Board">
 		select * from board
 		where region_id =#{id} 
+		order by createdDate DESC
 	</select>
+ 	
+ 	<select id="findByBestLimit" resultType="Board">
+ 		select * from board
+		where recommend>=10
+		and boardType_id=2
+		order by createdDate DESC
+		limit 5
+ 	</select>
+ 	
+ 	<select id="findByLastestMozip" resultType="Board">
+ 		select b.*, r.regionName from board b join region r
+		on b.region_id = r.id
+		where boardType_id=1
+		order by createdDate DESC
+		limit 5
+ 	</select>
  	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO `board` (`title`, `text`,`createdDate`,`boardType_id`,`startDate`,`endDate`,`person`,`cost`) 

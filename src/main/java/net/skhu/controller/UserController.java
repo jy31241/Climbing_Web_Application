@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import net.skhu.dto.Board;
 import net.skhu.dto.User;
+import net.skhu.mapper.BoardMapper;
 import net.skhu.mapper.UserMapper;
 import net.skhu.mapper.UserTypeMapper;
 
@@ -15,10 +17,14 @@ import net.skhu.mapper.UserTypeMapper;
 public class UserController {
     @Autowired UserMapper userMapper;
     @Autowired UserTypeMapper userTypeMapper;
-
+    @Autowired BoardMapper boardMapper;
 
     @RequestMapping("user/index")
-    public String index() {
+    public String index(Model model) {
+    	List<Board> boardBest = boardMapper.findByBestLimit();
+		List<Board> boardMozip= boardMapper.findByLastestMozip();
+		model.addAttribute("boardBest", boardBest);
+		model.addAttribute("boardMozip", boardMozip);
         return "user/index";
     }
 

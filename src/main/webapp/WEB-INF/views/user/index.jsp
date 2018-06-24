@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${R}res/common.css">
 
 <!-- Bootstrap core CSS -->
 <link href="${R}res/bootstrap/dist/css/bootstrap.min.css"
@@ -33,7 +34,7 @@
 	href="${R}res/bootstrap/dist/css/bootstrap-datepicker.css" />
 <script type="text/javascript"
 	src="${R}res/bootstrap/js/bootstrap-datepicker.js"></script>
-
+<script src="${R}res/common.js"></script>
 
 <style>
 @media ( min-width : 500px) {
@@ -157,10 +158,50 @@
 	</div>
 	
 	<div class="container">
-	
-	<h1> 홈화면 </h1>
-	</div>
+		<h1>베스트 후기</h1>
+		<table class="table table-bordered mt5">
+			<tbody>
+				<c:forEach var="board" items="${ boardBest }">
+					<tr data-url="${R}board/mozipcontent?id=${ board.id }">
+						<td>사진자리</td>
+						<td>${ board.title }</br> ${ board.user_id } &nbsp; 추천수:${ board.recommend }&nbsp;
+							조회수:${ board.views }&nbsp;
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
+		<h1>최신 모집게시판</h1>
+		<table class="table table-bordered mt5">
+			<thead>
+				<tr>
+					<th>지역</th>
+					<th>글제목</th>
+					<th>작성자</th>
+					<th>모집인원</th>
+					<th>작성일</th>
+					<th>추천수</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
 
+
+				<c:forEach var="board" items="${ boardMozip }">
+					<tr data-url="mozipcontent?id=${ board.id }">
+							<td>${ board.regionName }</td>
+							<td>${ board.title }</td>
+							<td>${ board.user_id }</td>
+							<td>${ board.nowperson } / ${ board.person } </td>
+							<td>${ board.createdDate }</td>
+							<td>${ board.recommend }</td>
+							<td>${ board.views }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 
 
 
