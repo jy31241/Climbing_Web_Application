@@ -113,12 +113,12 @@
 </project>
 ```
 ### 사용 기술
-> Spring Boot
-> Spring Security
-> JSP
-> AJAX
-> MySQL
-> MyBatis
+> Spring Boot  
+> Spring Security  
+> JSP  
+> AJAX  
+> MySQL  
+> MyBatis  
 > BootStrap   
 
 ### Team
